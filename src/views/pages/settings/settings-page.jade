@@ -1,0 +1,34 @@
+.shadow
+.settings-page
+  .settings-panel
+    .config
+      .big-avatar
+        .mask(style="background-image:url('{{image()}}');")
+      .user-data
+        h4.name {{user.name}} {{user.lastName}}
+        p.email {{user.username}}
+        .manage
+          label.change-picture
+            i.flat-profile
+            |   Change picture
+            input(type="file", nv-file-select="", accept="image/*", uploader="photoUploader")
+          a.change-password(href='', ng-click="password()")
+            i.flat-password
+            |   Manage password
+    .storage
+      progress.total-storage(max='100', value='{{actualStorage()}}')
+      .storage-data
+        span Total Storage
+        span {{ usedStorage() | humanizeFilesize }} of {{ maxStorage() | humanizeFilesize }} used
+  .tabs-panel
+    .tabs
+      ul
+        li
+          a(href="", ng-class="{ active: state.is(STATE.clouds) }", ng-click="cloud()") Connected Clouds
+        li
+          a(href="", ng-class="{ active: state.is(STATE.legals) }", ng-click="legals()") Legal
+    .tabs-add-cloud
+      button(ui-sref='general.home.addCloud')
+        i.flat-add-cloud
+        |   Add Cloud
+  .settings-container(ui-view='settings-container')

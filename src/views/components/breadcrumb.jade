@@ -1,0 +1,7 @@
+ul.breadcrumb-group
+  li(ng-repeat="folder in Breadcrumb.list")
+    a(href='', ng-click="open(folder)")
+      i(class="ag-{{ folder.cloudType }}-logo", ng-show="$first")
+      | {{ folder.name }}
+    span(ng-hide="$last")
+      | &gt;&nbsp;

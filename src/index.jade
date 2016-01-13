@@ -1,0 +1,41 @@
+doctype html
+html.no-js(lang='en')
+  head
+    meta(charset='utf-8')
+    base(href="/")
+    meta(name='description', content='Agora Beta Dashboard. Connect all your cloud accounts, edit, create, share & collaborate on all your documents!')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Agora - Dashboard
+    link(rel='icon', href='images/favicon/favicon.ico')
+
+    // build:css styles/vendor.css
+    link(rel='stylesheet', type='text/css', href='bower_components/normalize-css/normalize.css')
+    // endbuild
+
+    // build:sass(build) styles/main.css
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
+    // endbuild
+
+    // build:js scripts/vendor.js
+    // bower:js
+    //- javascript bower dependencies, generated automatically
+    // endbower
+    // endbuild
+
+    // build:es6({src,build}) scripts/main.js
+    script(type='text/javascript', src='scripts/config.js')
+    // inject:js
+    //- javascript our scripts, generated automatically
+    // endinject
+    // endbuild
+  body(ng-app='myApp', table-events)
+
+    //if lt IE 10
+      p.browserupgrade
+        | You are using an
+        strong outdated
+        |  browser. Please
+        a(href='http://browsehappy.com/') upgrade your browser
+        |  to improve your experience.
+
+    #wrapper-main(ui-view)

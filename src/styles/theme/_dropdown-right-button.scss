@@ -1,0 +1,33 @@
+ul.dropdown-right-button {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  li {
+    a {
+      font-size: 0.8rem;
+      font-weight: normal;
+      padding: 0.8rem;
+      display: block;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+    i {
+      margin: 0 14px;
+      font-size: 1.1rem;
+    }
+  }
+  .remove {
+    border-top: 1px solid $color-create-border;
+    a {
+      color: $color-action-remove;
+    }
+  }
+  &:after, &:before {
+    left: 50%;
+  }
+}
+
+ul.dropdown-right-button.open {
+  display: block;
+}

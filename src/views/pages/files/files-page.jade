@@ -1,0 +1,118 @@
+div(style="display:none;" class="dropfile-content")
+table(st-table="Resources.all | orderBy: Sorter[strategy](reverse):reverse | limitTo:filesCount")
+  thead
+    tr.file-header(scroll-on, buffered-scroll="increasefilesCount()", ng-init="filesCount=50")
+      th(ng-click="order('byName')", align="left", width="50%", ng-class="orderClass('byName')")
+        span Name
+      th(ng-click="order('byOwner')", align = "left", width="10%", ng-class="orderClass('byOwner')")
+        span Owner
+      th(ng-if="isFiles() || isTrash() || isStarred()", ng-click="order('byModifiedDate')", width="13%", ng-class="orderClass('byModifiedDate')")
+        span Last Edited
+      th(ng-if="isIncoming()", ng-click="order('bySharedDate')", width="13%", ng-class="orderClass('bySharedDate')")
+        span Shared Date
+      th(ng-if="isRecent()", ng-click="order('byLastAccess')", width="13%", ng-class="orderClass('byLastAccess')")
+        span Last Access
+      th(ng-click="order('byCloud')", width="10%", ng-class="orderClass('byCloud')")
+        span Cloud
+  tbody(dnd-list="Resources.all | limitTo:filesCount")
+    tr(ng-repeat="resource in Resources.all | orderBy: Sorter[strategy](reverse):reverse | limitTo:filesCount",
+        st-select-row="resource",
+        st-select-mode="multiple",
+        dnd-draggable="resource",
+        dnd-effect-allowed="move",
+        dnd-moved="Resources.all.splice($index, 1)",
+        dnd-selected="models.selected = resource",
+        dnd-disable-if="resource",
+        ng-dblclick="open(resource)",
+        unselectable="on")
+      td(context-menu, data-target="dropdown-right-button", width="50%", align="left")
+        i.file-share(ng-if="resource.isShared || resource.isSharedInAgora", class="flat-shared")
+        span.file-name
+          i(ng-class="'flat-l-' + getMimeType(resource)")
+          span
+            a(name="{{ resource._id }}") {{resource.name}}
+          i.flat-starred(ng-if="resource.isStarred")
+        ul.actions-hover
+          li(ng-if="!resource.isStarred && !isTrash()")
+            a.hint--top(href='', ng-click="star(resource)", data-hint="Add star")
+              i.flat-star
+          li(ng-if="resource.isStarred && !isTrash()")
+            a.hint--top(href='', ng-click="unstar(resource)", data-hint="Remove star")
+              i.flat-starred
+          li(ng-if="false")
+            a.hint--top(href='', data-hint="Share")
+              i.flat-share
+          li(ng-if="TypeService.isEditable(resource) && !isTrash()", ng-click="edit(resource)")
+            a.hint--top(href='', data-hint="Edit")
+              i.flat-edit2
+          li(ng-if="false")
+            a.hint--top(href='', data-hint="More")
+              i.flat-more
+          li(ng-if="!isTrash()")
+            a.hint--top(href='', ng-click="removeFile(resource)", data-hint="Delete")
+              i.flat-trash
+      td(width="10%")
+        span.file-owner {{ owner(resource) }}
+      td(ng-if="isFiles() || isTrash() || isStarred()", width="13%", align="center") {{ resource.modifiedDate | date : 'shortDate' }}
+      td(ng-if="isIncoming()", width="13%", align="center") {{ resource.sharedDate | date : 'shortDate' }}
+      td(ng-if="isRecent()", width="13%", align="center") {{ resource.lastAccess | date : 'shortDate' }}
+      td(width="10%", align="center")
+        span.hint--left(data-hint="{{resource.cloudUserEmail}}")
+          i(class="ag-{{resource.cloudType}}-logo")
+    tr.empty(ng-if="Resources.all.length === 0 && isStarred()")
+      td
+        i.flat-star
+        h2 No starred files or folders
+        p Add stars to items that you want to easily find later.
+        button(ng-click="goFiles()")
+          i.flat-files
+          | Go to your files
+    tr.empty(ng-if="Resources.all.length === 0 && isTrash()")
+      td
+        i.flat-trash
+        h2 No trashed files or folders
+        p All trashed items will appear here.
+        button(ng-click="goFiles()")
+          i.flat-files
+          | Go to your files
+
+    ul.dropdown.dropdown-right-button(id="dropdown-right-button")
+      li(ng-if="false")
+        a(href='')
+          i.flat-share
+          |   Share
+      li(ng-click="star()", ng-show="canStar() && !isTrash()")
+        a(href='')
+          i.flat-star
+          |   Add Star
+      li(ng-click="unstar()", ng-show="!canStar() && !isTrash()")
+        a(href='')
+          i.flat-starred
+          |   Remove Star
+      li(ng-if="false")
+        a(href='')
+          i.flat-email
+          |   Email
+      li(ng-click="download()", ng-if="!isTrash()")
+        a(href='')
+          i.flat-download
+          |   Download {{Resources.moreThanOneSelected() ? 'All' : ''}}
+      li(ng-show="Resources.isSingleOperation() && !isTrash()", ng-click="renameFile(resource)")
+        a(href='')
+          i.flat-rename
+          |   Rename
+      li(ng-show="Resources.isSingleOperation() && !isTrash() && isEditable()", ng-click="edit(resource)")
+        a(href='')
+          i.flat-edit2
+          |   Edit
+      li(ng-click="move()", ng-if="!isTrash() && !isFilesRoot() && !isStarred()")
+        a(href='')
+          i.flat-moveto
+          |   Move To
+      li.remove(ng-if="!Resources.moreThanOneSelected() && !isTrash()", ng-click="removeFile()")
+        a(href='')
+          i.flat-trash
+          |   Delete {{Resources.moreThanOneSelected() ? 'All' : ''}}
+      li(ng-if="isTrash()", ng-click="restore()")
+        a(href='')
+          |   Restore

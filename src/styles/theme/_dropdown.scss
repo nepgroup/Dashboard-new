@@ -1,0 +1,27 @@
+ul.dropdown {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  min-width: 200px;
+  position: absolute;
+  background-color: $color-dropdown-background;
+  border: 1px solid $color-dropdown-border;
+  box-shadow: -2px 3px 12px $color-dropdown-shadow;
+  &:after, &:before {
+    bottom: 100%;
+    border: solid transparent;
+    content: "";
+    position: absolute;
+    pointer-events: none;
+  }
+  &:after {
+    border-bottom-color: $color-dropdown-background;
+    border-width: 4px;
+    margin-left: -4px;
+  }
+  &:before {
+    border-bottom-color: $color-dropdown-border;
+    border-width: 5.5px;
+    margin-left: -5px;
+  }
+}

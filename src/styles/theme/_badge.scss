@@ -1,0 +1,16 @@
+.badge {
+  color: $color-badge-base;
+  margin-left: 1.7rem;
+  font-size: 0.7rem;
+  i {
+    position: absolute;
+  }
+  .flat-incoming:before {
+    color: $color-badge-background;
+    font-size: 1.6rem;
+    z-index: -1;
+    top: 1px;
+    right: 17px;
+    position: relative;
+  }
+}

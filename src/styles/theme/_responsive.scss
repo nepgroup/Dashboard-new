@@ -1,0 +1,178 @@
+body {
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-base-font;
+  &.fancymodal-open {
+    overflow: auto;
+  }
+}
+#wrapper-main {
+  display: flex;
+  flex-flow: row nowrap;
+  transition: all 0.1s ease-out;
+  background-color: $color-button-base;
+}
+aside {
+  flex: 0 0 19%;
+  background-color: $color-aside-background;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  z-index: 3;
+  .fixed {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100%;
+    width: 19%;
+    left: 0;
+  }
+  .logo {
+    flex: 0 0 5rem;
+    align-self: center;
+  }
+  .create {
+    flex: 0 0 5.5rem;
+    display: flex;
+    align-self: center;
+    align-items: center;
+  }
+  .menu {
+    flex: 1 0 auto;
+    display: flex;
+    align-self: stretch;
+    flex-flow: column nowrap;
+  }
+  .add-cloud {
+    flex: 0 0 2.7rem;
+    display: flex;
+    align-self: stretch;
+  }
+}
+section {
+  flex: 1 0 81%;
+  overflow: hidden;
+  overflow-x: auto;
+}
+#wrapper-section {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  background-color: $color-button-base;
+  .notifications {
+    flex: 0 0 2rem;
+    flex-flow: row nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    animation: 0.3s ShowNotifications ease;
+  }
+  .notifications.ng-hide-add {
+    animation: 0.3s HideNotifications ease;
+  }
+  .fixed {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 81%;
+    background-color: #fff;
+    z-index: 2;
+  }
+}
+header {
+  flex: 0 0 10.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  .header-top {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 0 0 5rem;
+    .search {
+      flex: 0 0 35%;
+      margin-left: 1.5rem;
+      display: flex;
+      align-self: center;
+    }
+    .messages {
+      flex: 1 0 40%;
+      display: flex;
+      align-self: center;
+    }
+    .settings {
+      flex: 0 0 20%;
+      margin-right: 1.5rem;
+      justify-content: flex-end;
+      display: flex;
+      align-self: center;
+    }
+  }
+  .header-bottom {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 0 0 5.5rem;
+    justify-content: space-between;
+    .breadcrumb {
+      margin-left: 1.5rem;
+      align-self: center;
+    }
+    .actions {
+      margin-right: 1.5rem;
+      align-self: center;
+    }
+    .section-title {
+      margin-left: 1.5rem;
+      align-self: center;
+    }
+  }
+}
+main {
+  flex: 1 0 auto;
+  margin-top: 10.5rem;
+}
+
+@media only screen and (max-width:960px) {
+  #wrapper-main {
+    flex-flow: column nowrap;
+  }
+  aside {
+    flex: 0 0 auto;
+    position: fixed;
+    width: 100%;
+    .fixed {
+      position: relative;
+    }
+    .create {
+      display: none;
+    }
+    .menu {
+      display: none;
+    }
+    .add-cloud {
+      display: none;
+    }
+  }
+  #wrapper-section {
+    height: auto;
+    .fixed {
+      margin-top: 60px;
+      position: fixed;
+      width: 100%;
+    }
+  }
+  header {
+    flex: 0 0 auto;
+    .header-left {
+      flex: 0 0 100%;
+      .breadcrumb {
+        display: none;
+      }
+    }
+    .header-right {
+      display: none;
+    }
+  }
+}

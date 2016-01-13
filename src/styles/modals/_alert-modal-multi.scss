@@ -1,0 +1,105 @@
+#alert-modal-multi {
+  &:before {
+    background-color: $color-button-background-danger;
+    content: "";
+    height: 0.2rem;
+    width: 100%;
+    position: absolute;
+    right: 0;
+  }
+  .modal-body {
+    padding: 2.5rem 0;
+    h2 {
+      font-weight: lighter;
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 2rem 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 17rem;
+      li {
+        display: flex;
+        flex-flow: row nowrap;
+        border-bottom: 1px solid $color-create-border;
+        padding: 1rem 1.5rem;
+        .icon {
+          font-size: 1.7rem;
+          margin-right: 1rem;
+          i {
+            &.flat-l-photoshop:after,
+            &.flat-l-illustrator:after,
+            &.flat-l-ae:after,
+            &.flat-l-indd:after {
+              margin-left: -1.7rem;
+            }
+          }
+        }
+        .data {
+          text-align: left;
+          flex: 0 0 79%;
+          h5 {
+            font-weight: normal;
+            margin: 0;
+            max-width: 15rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+          }
+          p {
+            font-size: 0.7rem;
+            font-weight: lighter;
+            margin: 0;
+          }
+        }
+        .remove {
+          color: $color-cloud-base;
+          font-size: 0.6rem;
+          font-weight: bold;
+          border-radius: 50%;
+          border: 2px solid $color-cloud-base;
+          width: 1.2rem;
+          height: 1.2rem;
+          align-self: center;
+          padding: 0.2rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .modal-footer {
+    border-top: 1px solid $color-button-background-secondary;
+    padding: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $color-button-base;
+    button {
+      padding: 0.5rem 2.5rem;
+      margin: 0 0.1rem;
+    }
+    .danger {
+      color: $color-button-base-danger;
+      background-color: $color-button-background-danger;
+      &:hover {
+        color: $color-button-background-danger;
+        background-color: transparent;
+        box-shadow:inset 0px 0px 0px 1px $color-button-background-danger;
+      }
+    }
+    .danger.btn-invert {
+      color: $color-button-background-secondary;
+      background-color: transparent;
+      box-shadow:inset 0px 0px 0px 1px $color-button-background-secondary;
+      &:hover {
+        color: $color-button-base-danger;
+        background-color: $color-button-background-secondary;
+        border: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+#rename-modal
+  form(ng-submit="rename(newName)")
+    .modal-body
+      h2 Rename
+      i(ng-class="'flat-l-' + getMimeType(resource)")
+      .rename-input
+        input(placeholder="New name", value="{{resource.name}}", ng-model='newName', focus-on-load, ng-focus="selectionOnFocus($event)")
+    .modal-footer
+      button(type="submit") Rename
+      button.btn-invert(type="reset", ng-click="close()") Cancel

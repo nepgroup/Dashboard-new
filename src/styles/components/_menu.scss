@@ -1,0 +1,115 @@
+ul.menu-group {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  .dropdown-arrow {
+    font-size: 0.5rem;
+    color: $color-nav-files;
+    text-decoration: none;
+    position: absolute;
+    margin-left: 1rem;
+    margin-top: 0.8rem;
+    .flat-dropdowns-up {
+      transform: rotate(90deg);
+      display: block;
+    }
+  }
+  .cloud-group {
+    opacity: 1;
+    max-height: 6rem;
+    list-style-type: none;
+    width: 12rem;
+    overflow-y: auto;
+    margin: 1rem 0;
+    transition: all 0.4s ease;
+    li {
+      cursor: pointer;
+      margin-bottom: 0;
+      padding: 0.3rem 0;
+      a {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-left: 1rem;
+        font-size: 0.7rem;
+        display: inline-block;
+        max-width: 9rem;
+        &:after {
+          display: none;
+        }
+        &.active {
+          color: $color-nav-files;
+        }
+      }
+      &:hover a{
+        color: $color-nav-active
+      }
+    }
+  }
+  .cloud-group.ng-hide {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    transition: all 0.4s ease;
+  }
+  li {
+    padding: 0.5rem 2.5rem;
+    a {
+      color: $color-nav-base;
+      text-decoration: none;
+      font-size: 0.95rem;
+      outline: 0;
+      i {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+      &:after {
+        content: "";
+        height: 2.3rem;
+        position: absolute;
+        width: 0.3rem;
+        right: 0;
+        margin-top: -0.5rem;
+      }
+    }
+  }
+  $type-state: (
+    files: $color-nav-files,
+    recent: $color-nav-recent,
+    incoming: $color-nav-incoming,
+    starred: $color-nav-starred,
+    trash: $color-nav-trash
+  );
+  @each $name, $color in $type-state {
+    .flat-l-#{$name} {
+      color: $color;
+    }
+    li.#{$name} {
+      cursor: pointer;
+      &:hover {
+        a {
+          color: $color;
+          transition: all 0.1s ease;
+          i {
+            color: $color;
+            transition: all 0.1s ease;
+          }
+          &:after {
+            background-color: $color;
+          }
+        }
+      }
+      &.active {
+        background-color: $color-nav-active;
+        a {
+          color: $color-nav-hover;
+          i {
+            color: $color;
+          }
+          &:after {
+            background-color: $color;
+          }
+        }
+      }
+    }
+  }
+}

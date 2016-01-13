@@ -1,0 +1,32 @@
+form.sign-page(name="signinForm", novalidate, ng-submit="signin(signinForm.$valid)")
+  h2 Sign in to Agora
+  .border
+    input(name="signinEmail", type="email",
+      ng-model="user.username",
+      ng-model-options="{ updateOn: 'blur' }",
+      placeholder="Email",
+      autofocus,
+      ng-required="true")
+    .errors(ng-show="signinForm.$submitted && signinForm.signinEmail.$pristine")
+      | Required!
+    .errors(ng-show="signinForm.signinEmail.$error.required && !signinForm.signinEmail.$pristine")
+      | Required!
+    .errors(ng-show="signinForm.signinEmail.$error.email")
+      | Not valid email!
+    input(name="signinPassword", type="password",
+      ng-model="user.password",
+      ng-model-options="{ updateOn: 'blur' }",
+      placeholder="Password",
+      ng-minlength="Validator.minPassword()",
+      ng-maxlength="Validator.maxPassword()",
+      ng-pattern="Validator.passwordPattern()",
+      ng-required="true")
+    .errors(ng-show="signinForm.$submitted && signinForm.signinPassword.$pristine")
+      | Required!
+    .errors(ng-show="signinForm.signinPassword.$error.required && !signinForm.signinPassword.$pristine")
+      | Required!
+    button.button-sign(type="submit") Sign In
+  a.forgot(ui-sref='auth.sign.forgotpassword') Forgot your password?
+  span Don't have an account yet?
+    a(ui-sref='auth.sign.up') Sign up
+

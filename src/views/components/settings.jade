@@ -1,0 +1,27 @@
+.settings-group
+  .user
+    | {{user.name}} {{user.lastName}}
+    br
+    .gear(class="hint--bottom", data-hint="Settings")
+      i.flat-gear(dropdown-menu="settingsDropdown")
+  .avatar
+    .mask(style="background-image:url('{{image()}}');", dropdown-menu="settingsDropdown")
+  ul.dropdown.dropdown-settings(id="settingsDropdown", ng-controller="SettingsController")
+    li
+      span {{user.username}}
+      br
+      progress(max='100', value='{{actualStorage()}}')
+      br
+      span {{ usedStorage() | humanizeFilesize }} of {{ maxStorage() | humanizeFilesize }} used
+    li
+      a(ui-sref='general.home.addCloud')
+        i.flat-add-cloud
+        |   Add Cloud
+    li
+      a(ui-sref='general.home.settings.clouds')
+        i.flat-settings
+        |   Settings
+    li
+      a(ui-sref='auth.sign.in', ng-click="signout()")
+        i.flat-logout
+        |   Log Out

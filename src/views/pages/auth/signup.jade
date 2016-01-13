@@ -1,0 +1,102 @@
+form.flow-page(ng-if="steps === 0", name="signupForm", novalidate, ng-submit="signup(signupForm.$valid)")
+  .flow-title
+    h2 Set up your account
+  .border
+    input(name="signupName", type="text",
+      ng-model="user.name",
+      placeholder="First Name",
+      autofocus,
+      ng-required="true")
+    .errors(ng-show="signupForm.$submitted && signupForm.signupName.$pristine")
+      | Required!
+    .errors(ng-show="signupForm.signupName.$error.required && !signupForm.signupName.$pristine")
+      | Required!
+    input(name="signupLastName", type="text",
+      ng-model="user.lastName",
+      placeholder="Last Name",
+      ng-required="true")
+    .errors(ng-show="signupForm.$submitted && signupForm.signupLastName.$pristine")
+      | Required!
+    .errors(ng-show="signupForm.signupLastName.$error.required && !signupForm.signupLastName.$pristine")
+      | Required!
+    input(name="signupEmail", type="email",
+      ng-model="user.username",
+      placeholder="Email",
+      ng-required="true")
+    .errors(ng-show="signupForm.$submitted && signupForm.signupEmail.$pristine")
+      | Required!
+    .errors(ng-show="signupForm.signupEmail.$error.required && !signupForm.signupEmail.$pristine")
+      | Required!
+    .errors(ng-show="signupForm.signupEmail.$error.email")
+      | Not valid email!
+    input(name="signupPassword", type="password",
+      ng-model="user.password",
+      placeholder="Password",
+      ng-minlength="Validator.minPassword()",
+      ng-maxlength="Validator.maxPassword()",
+      ng-required="true")
+    .errors(ng-show="signupForm.$submitted && signupForm.signupPassword.$pristine")
+      | Required!
+    .errors(ng-show="signupForm.signupPassword.$error.required && !signupForm.signupPassword.$pristine")
+      | Required!
+    .errors(ng-show="signupForm.signupPassword.$error.password")
+      | Not valid password!
+    .errors(ng-show="signupForm.signupPassword.$error.minlength")
+      | Password is too short!
+    .errors(ng-show="signupForm.signupPassword.$error.maxlength")
+      | Password is too long!
+  button.button-flow(type="submit", ng-disabled="!signupForm.$valid") Go!
+
+.flow-page(ng-if="steps === 1")
+  .flow-title
+    h2 Connect your accounts
+    p Click on the logos below to connect your clouds
+  .flow-clouds
+    a(href="", ng-click="addCloud(cloud)", class="{{cloud}}", ng-repeat="cloud in Clouds")
+      i(class="ag-{{cloud}}-logo")
+      i(class="flat-add-cloud")
+      span(ng-if="hasClouds(cloud)") ✔︎ {{cloudText(cloud)}}
+  button.button-flow(ng-disabled="!canContinue()", ng-click="goToStep2()") I've connected all my clouds
+
+.flow-page(ng-if="steps === 2")
+  .flow-title
+    h2 Invite the people you work with most
+    p(ng-show="!noCollaborators()") Click on the collaborators you want to join you on Agora.
+      | &nbsp;
+      a.invite(href="", ng-click="fetchCollaborators()") Refresh
+  .flow-empty(ng-if="noCollaborators() && !loading")
+    p We don't have any information about your collaborators yet.
+    button(ng-click="fetchCollaborators()") Please refresh
+  #loading-bar-spinner(ng-if="loading")
+    .spinner-icon
+  ul.collaborators(ng-show="!loading")
+    li(ng-repeat="collaborator in Collaborators()")
+      .top
+        .avatar
+          img.mask(ng-src="{{picture(collaborator.collaborator.photoLink)}}")
+        h2.name {{collaborator.collaborator.displayName}}
+        span.email {{collaborator.collaborator.email}}
+        a.invite(ng-if="!collaborator.invited", ng-disabled="loading", href="", ng-click="invite(collaborator.collaborator)") Invite
+        a.invited(ng-if="collaborator.invited", href="") ✔︎
+      .bottom
+        span FILES IN COMMON
+        span.total {{collaborator.count}}
+  button.button-flow.last(ng-if="!hasInvited && !loading && !noCollaborators()", ng-disabled="!hasInvited") Invite someone to continue
+  button.button-flow.last(ng-if="steps === 2 && hasInvited && !noCollaborators()", ng-click="goFiles()") Go to my files
+
+#wizard(ng-if="!isInvite", data-step='{{steps}}')
+  p.step(for='step-1')
+    span Step 1
+    br
+    span.text Set your account
+  p.step(for='step-2')
+    span Step 2
+    br
+    span.text Connect your cloud
+  p.step(for='step-3')
+    span Step 3
+    br
+    span.text Invite & collaborate
+    br
+    a.flow-skip(ng-if="steps >= 2", href="", ng-click="skip()") Skip
+a.invite(ng-if="isInvite", href="", ng-click="skip()") Skip

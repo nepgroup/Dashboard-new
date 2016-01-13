@@ -1,0 +1,21 @@
+.sign-page
+  p
+    | {{message}}
+    br
+    | If you need a new activation link, please request one.
+  a.token(href="", ng-click="showInput()") Request a new one
+  .reactive
+    form.sign-page(name="newToken", novalidate, ng-submit="reactive(newToken.$valid)")
+    input(name="forgotEmail", type="email",
+      ng-model="user.username",
+      ng-model-options="{ updateOn: 'blur' }",
+      placeholder="Email",
+      autofocus,
+      ng-required="true", ng-show="showRequest")
+    .errors(ng-show="newToken.$submitted && newToken.forgotEmail.$pristine")
+      | Required!
+    .errors(ng-show="newToken.forgotEmail.$error.required && !newToken.forgotEmail.$pristine")
+      | Required!
+    .errors(ng-show="newToken.forgotEmail.$error.email")
+      | Not valid email!
+    button.button-sign.activation(ng-click="activation(user.username)", ng-show="showRequest") Retrieve new token

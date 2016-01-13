@@ -1,0 +1,10 @@
+.file-viewer-preview
+  img(ng-if="isImage", ng-src="{{ fileUrl }}")
+
+  audio(ng-if="isAudio", preload="auto", autoplay, controls)
+    source(type="{{ mimeType }}", ng-src="{{ fileUrl }}")
+
+  video(ng-if="isVideo", preload="auto", autoplay, controls)
+    source(type="{{ mimeType }}", ng-src="{{ fileUrl }}")
+
+  iframe(ng-if="isFile", ng-src="{{ fileUrl }}", ng-class="{ google: isGoogleDoc, office: isOfficeDoc }", frameBorder="0")

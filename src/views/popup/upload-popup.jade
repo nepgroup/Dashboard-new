@@ -1,0 +1,24 @@
+#upload-popup
+  .popup-header
+    h4 {{uploader.queue.length}} Files to Upload
+    .controls
+      span.min(ng-click="minimizer = !minimizer") &#150;
+      span(ng-click="close()") X
+  .popup-body(ng-class="{'move-up': minimizer, 'move-dowm': !minimizer}")
+    .total-storage
+      progress.total-progress(max='100', value='{{ uploader.progress }}')
+      span {{ uploader.progress }}%
+    ul
+      li(ng-repeat="item in uploader.queue")
+        .remove(ng-click="remove(item)")
+          span.close X
+          i(ng-class="'flat-l-' + getMimeType(item._file.type)")
+          span.name-file {{item._file.name}}
+        .item-storage
+          span.size {{item._file.size | humanizeFilesize }}
+          progress.item-progress(max='100', value='{{ item.progress }}')
+          span.percent {{item.progress}}%
+        .name
+          a.uploading(ng-if="item.isUploading") Locate
+          a.share(ng-if="false", href="") Share
+          a.locate(ng-if="item.isSuccess", ng-click="locate(item)", href="") Locate

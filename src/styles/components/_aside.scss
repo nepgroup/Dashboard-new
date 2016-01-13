@@ -1,0 +1,85 @@
+.logo {
+  color: $color-logo-background;
+  cursor: pointer;
+  h1 {
+    font-size: 1.9rem;
+    margin: 1.7rem 0;
+  }
+}
+.button-create {
+  font-size: 0.7rem;
+  padding: 0.7rem 2.8rem;
+  margin-right: 0.2rem;
+  &[disabled="disabled"] {
+    color: $color-button-base-secondary;
+    background-color: transparent;
+    box-shadow:inset 0px 0px 0px 1px $color-button-base-secondary;
+    outline: 0;
+  }
+}
+.button-upload {
+  color: $color-button-base;
+  background-color: $color-button-background;
+  font-size: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  cursor: pointer;
+  &:hover {
+    color: $color-button-background;
+    background-color: transparent;
+    box-shadow:inset 0px 0px 0px 1px $color-button-background;
+  }
+  &[disabled="disabled"] {
+    color: $color-button-base-secondary;
+    background-color: transparent;
+    box-shadow:inset 0px 0px 0px 1px $color-button-base-secondary;
+    outline: 0;
+  }
+}
+.button-upload [type=file] {
+  cursor: inherit;
+  display: block;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2rem;
+}
+.button-add-cloud {
+  padding: 15px;
+  flex: 1;
+}
+.dropdown-create {
+  top: 10rem;
+  left: 3rem;
+  z-index: 1;
+  li {
+    a {
+      font-size: 0.8rem;
+      font-weight: normal;
+      padding: 0.8rem;
+      display: block;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+    &:last-child a {
+      /*border-top: 1px solid $color-create-border;*/
+    }
+    i {
+      margin: 0 14px;
+      font-size: 1.1rem;
+    }
+  }
+  &:after, &:before {
+    left: 50%;
+  }
+}
+.dropdown-create.ng-hide-remove {
+  animation: 0.3s ShowFromBottom ease;
+}
+
+.dropdown-create.ng-hide-add {
+  animation: 0.3s HideFromBottom ease;
+}
+

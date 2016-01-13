@@ -1,0 +1,9 @@
+#alert-modal
+  .modal-body
+    h2 Delete this item?
+    i(ng-class="'flat-l-' + getMimeType(resources[0])")
+    h3 {{resources[0].name}}
+    p {{resources[0].size/1024/1024|number:2}} MB | Last Mod.: {{ resources[0].modifiedDate | date:'MM/dd/yyyy' }}
+  .modal-footer
+    button.danger(ng-click="delete()") Delete
+    button.danger.btn-invert(ng-click="close()") Cancel

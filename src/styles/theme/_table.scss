@@ -1,0 +1,133 @@
+table {
+  font-size: 0.75rem;
+  width: 100%;
+  thead tr {
+    background-color: $color-table-header-background;
+    border-bottom: 1px solid $color-table-header-border;
+    position: fixed;
+    z-index: 1;
+    width: 81%;
+    display: table;
+    th {
+      cursor: pointer;
+      padding: 0 2rem 1.4rem 1.5rem;
+      span {
+        font-family: "Lato" , sans-serif;
+        font-size: 0.9rem;
+        margin-left: 0.5rem;
+      }
+    }
+    &.scroll {
+      box-shadow: 0 0.5rem 2.5rem $color-table-header-background;
+    }
+  }
+  tbody {
+    margin-top: 2.3rem;
+    display: table;
+    width: 100%;
+    tr{
+      border-bottom: 1px solid $color-table-row-border;
+      user-select: none;
+      td:first-child {
+        padding: 0.8rem 2rem 0.6rem 2.5rem;
+      }
+      ul.actions-hover {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        float: right;
+        font-size: 1rem;
+        display: flex;
+        margin-top: -1px;
+        opacity: 0;
+      }
+      &:hover {
+        background-color: $color-table-row-hover-background;
+        border-color: $color-table-row-hover-border;
+        transition: all 0.1s ease;
+        ul.actions-hover {
+          opacity: 1;
+          transition: all 0.1s ease;
+          li {
+            a {
+              color: $color-action-base;
+              padding-right: 10px;
+            }
+            &:last-child a{
+              color: $color-action-remove;
+            }
+          }
+        }
+      }
+      &.empty {
+        border-bottom: none;
+        display: flex;
+        flex-flow: column nowrap;
+        text-align: center;
+        margin-top: 5rem;
+        align-items: center;
+        &:hover {
+          background-color: $color-button-base;
+          border-color: $color-button-base;
+        }
+        i {
+          font-size: 5.5rem;
+          color: $color-button-base-secondary;
+        }
+        h2 {
+          font-weight: lighter;
+          margin: 1.5rem 0 0.3rem 0;
+        }
+        p {
+          font-size: 0.9rem;
+          margin: 0 0 2rem 0;
+          color: $color-button-base-secondary;
+        }
+        button {
+          padding: 0.5rem 1.5rem;
+          i {
+            color: $color-button-base;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+          }
+          &:hover {
+            i {
+              color: $color-button-background;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.st-sort-ascent:before{
+  content: "\e64d";
+}
+
+.st-sort-descent:before{
+  content: "\e64e";
+}
+
+.st-selected {
+  background-color: $color-table-row-active-background;
+  border-color: $color-table-row-active-background;
+  &:hover {
+    background-color: $color-table-row-active-background;
+    border-color: $color-table-row-active-background;
+  }
+}
+
+table .dndDragging {
+  opacity: 0.99;
+  background-color: $color-table-row-active-background;
+  border-color: $color-table-row-active-border;
+}
+table .dndDraggingSource {
+  display: none;
+}
+table .dndPlaceholder {
+  list-style-type: none;
+  background-color: $color-table-row-active-background;
+  border-color: $color-table-row-active-border;
+}

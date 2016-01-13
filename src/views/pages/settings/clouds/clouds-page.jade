@@ -1,0 +1,15 @@
+.clouds-panel
+  .cloud(ng-repeat="cloudType in CLOUDS", class="cloud-{{ cloudType }}", ng-show="hasCloud(cloudType)")
+    .cloud-title
+      i(class="ag-{{ cloudType }}-logo")
+      span {{ cloudType | uppercase }}
+    table.cloud-table(width='100%')
+      tbody
+        tr(ng-repeat="cloud in clouds() | filter:{ cloudType: cloudType }:true")
+          td(width='1%').color-block
+          td(width='30%', align='left') {{ cloud.cloudUserEmail }}
+          td(width='60%', align='left')
+            progress(max='100', value='{{ cloudStorage(cloud) }}')
+            span {{ cloud.used | humanizeFilesize }} of {{ cloud.total | humanizeFilesize }} used
+          td(width='9%', align='right')
+            a(href="", ng-click="showDetails(cloud)") Details

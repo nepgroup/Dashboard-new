@@ -1,0 +1,59 @@
+/* Font */
+@import url(https://fonts.googleapis.com/css?family=Lato:600,400,300);
+
+/* Icons */
+@import "theme/ag-icons";
+@import "theme/flat-icons";
+
+/* Theme */
+@import "theme/colors";
+@import "theme/color-type";
+@import "theme/buttons";
+@import "theme/responsive";
+@import "theme/dropdown";
+@import "theme/dropdown-right-button";
+@import "theme/clouds";
+@import "theme/table";
+@import "theme/progress";
+@import "theme/hint";
+@import "theme/animations";
+@import "theme/badge";
+@import "../bower_components/hint.css/hint.min.css";
+
+/* Components */
+@import "components/aside";
+@import "components/search";
+@import "components/settings";
+@import "components/breadcrumb";
+@import "components/actions";
+@import "components/notifications";
+@import "components/messages";
+@import "components/menu";
+@import "components/loading-bar";
+@import "components/wizard";
+
+/* Modals */
+@import "modals/modals";
+@import "modals/alert-modal-multi";
+@import "modals/alert-modal";
+@import "modals/rename-modal";
+@import "modals/details-modal";
+@import "modals/password-modal";
+@import "modals/cancel-upload-modal";
+@import "modals/save-changes-modal";
+@import "modals/create-folder-modal";
+@import "modals/move-modal";
+@import "modals/skip-modal";
+
+/* Popup */
+@import "popup/upload-popup";
+
+/* Pages */
+@import "pages/settings-page";
+@import "pages/auth-page";
+@import "pages/flow-page";
+@import "pages/files-page";
+@import "pages/add-cloud-page";
+@import "pages/file-viewer";
+@import "pages/reset-page";
+

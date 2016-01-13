@@ -1,0 +1,295 @@
+.flow-title {
+  text-align: center;
+  h2 {
+    margin: 0.5rem;
+    font-weight: lighter;
+    font-size: 2.5rem;
+  }
+}
+.flow-empty {
+  text-align: center;
+  button {
+    padding: 0.5rem;
+  }
+}
+.flow-page {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 28rem;
+  .border {
+    border: 1px solid $color-table-row-border;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+    margin: 2rem 0;
+  }
+  input {
+    border: none;
+    border-bottom: 1px solid $color-border;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+    outline: 0;
+    padding: 5px;
+    box-shadow: none;
+    width: 19rem;
+  }
+  span {
+    font-size: 0.9rem;
+    text-align: center;
+    padding-top: 20px;
+    font-weight: lighter;
+    a {
+      color: $color-button-background;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-left: 0.5rem;
+    }
+  }
+  .forgot {
+    text-align: center;
+    padding-top: 0.5rem;
+    color: $color-button-background;
+    font-size: 0.9rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .errors {
+    margin-top: -1.55rem;
+    margin-bottom: 0.2rems;
+    font-size: 0.8rem;
+    color: $color-badge-background;
+    padding-top: 5px;
+    border-top: 1px solid $color-badge-background;
+    display: block;
+  }
+  .flow-clouds {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-self: stretch;
+    a {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      span {
+        font-size: 0.8rem;
+        font-weight: normal;
+      }
+      i {
+        font-size: 3.5rem;
+        border-radius: 50%;
+        padding: 1.5rem;
+        &.flat-add-cloud {
+          color: $color-button-base;
+          font-size: 2.6rem;
+          padding: 1.96rem;
+          margin-top: -6.56rem;
+        }
+        &.ag-dropbox-logo {
+          border: 1px solid $color-cloud-dropbox;
+          + .flat-add-cloud{
+            background-color: $color-cloud-dropbox;
+          }
+        }
+        &.ag-drive-logo {
+          border: 1px solid $color-cloud-drive;
+          padding: 2.8rem;
+          background-size: 3rem 3rem;
+          background-position: 1.7rem 1.6rem;
+          + .flat-add-cloud{
+            background-color: $color-cloud-drive;
+          }
+        }
+        &.ag-box-logo {
+          border: 1px solid $color-cloud-box;
+          + .flat-add-cloud{
+            background-color: $color-cloud-box;
+          }
+        }
+      }
+      &.dropbox .ag-dropbox-logo, &.dropbox:hover .flat-add-cloud,
+      &.drive .ag-drive-logo, &.drive:hover .flat-add-cloud,
+      &.box .ag-box-logo, &.box:hover .flat-add-cloud {
+        display: flex;
+      }
+      &.dropbox .flat-add-cloud,
+      &.drive .flat-add-cloud,
+      &.box .flat-add-cloud {
+        display: none;
+      }
+    }
+  }
+  .button-flow {
+    padding: 0.8rem 4rem;
+    font-size: 1rem;
+    align-self: center;
+    margin-bottom: 2rem;
+    &[disabled="disabled"] {
+      color: $color-border;
+      background-color: transparent;
+      box-shadow:inset 0px 0px 0px 1px $color-table-row-border;
+      outline: 0;
+    }
+    &.last {
+      margin-top: 2rem;
+    }
+  }
+  a.refresh {
+    color: $color-button-background;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .collaborators {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 2rem;
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 12rem;
+    li {
+      border: 1px solid $color-table-row-border;
+      width: 12rem;
+      height: 12rem;
+      float: left;
+      .top {
+        height: 6rem;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        .avatar {
+          margin-top: -1.5rem;
+          .mask {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-color: $color-settings-avatar;
+          }
+        }
+        h2.name {
+          margin: 0;
+          font-size: 0.9rem;
+          margin-top: 0.5rem;
+        }
+        span.email {
+          font-size: 0.7rem;
+          padding: 0;
+          margin-bottom: 1.5rem;
+        }
+        .invite {
+          font-size: 0.8rem;
+          color: $color-button-base;
+          background-color: $color-button-background;
+          border-radius: 1rem;
+          padding: 0.15rem 1rem;
+          position: relative;
+          &:before {
+            content: "";
+            border-bottom: 1px solid $color-button-background;
+            width: 4rem;
+            position: absolute;
+            left: -4rem;
+            top: 0.5rem;
+          }
+          &:after {
+            content: "";
+            border-bottom: 1px solid $color-button-background;
+            width: 4rem;
+            position: absolute;
+            left: 4rem;
+            top: 0.5rem;
+          }
+          &:hover {
+            border: none;
+            border: 1px solid $color-table-row-border;
+            background-color: $color-button-base;
+            color: $color-table-row-border;
+            &:before, &:after {
+              border-color: #EFF2F4;
+            }
+          }
+          &[disabled="disabled"] {
+            color: $color-table-row-border;
+            border: 1px solid $color-table-row-border;
+            cursor: default;
+            background-color: $color-button-base;
+            &:before, &:after {
+              border-color: $color-table-row-border;
+            }
+            &:hover {
+              border: 1px solid $color-table-row-border;
+              background-color: $color-button-base;
+              &:before, &:after {
+                border-color: $color-table-row-border;
+              }
+            }
+          }
+        }
+        .invited {
+          font-size: 0.7rem;
+          color: $color-button-base;
+          background-color: $color-button-background;
+          border-radius: 50%;
+          padding: 0.15rem 1rem;
+          font-weight: lighter;
+          position: relative;
+          border-radius: 100%;
+          padding: 0.4rem 0.5rem;
+          &:before {
+            content: "";
+            border-bottom: 1px solid #EFF2F4;
+            width: 5.2rem;
+            position: absolute;
+            left: -5.2rem;
+            top: 0.5rem;
+          }
+          &:after {
+            content: "";
+            border-bottom: 1px solid #EFF2F4;
+            width: 5.2rem;
+            position: absolute;
+            left: 1.6rem;
+            top: 0.5rem;
+          }
+        }
+      }
+      .bottom {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        span {
+          font-size: 0.5rem;
+          font-weight: bold;
+          padding: 0;
+          margin-top: 2rem;
+          &.total {
+            font-size: 2rem;
+            font-weight: lighter;
+            margin: 0;
+          }
+          &.title {
+            margin-top: 0rem;
+          }
+        }
+      }
+    }
+  }
+}
+.collaborators {
+  opacity: 1;
+  transition: all 1s ease-in-out;
+}
+.collaborators.ng-hide {
+  opacity: 0;
+  display: block!important;
+}

@@ -1,0 +1,22 @@
+language: node_js
+
+sudo: false
+
+node_js:
+  - '0.12'
+
+before_install:
+  - npm install
+  - node_modules/.bin/bower install
+
+notifications:
+  slack:
+    secure: koFlJBIR4sHCpUNDwDdaiuYK0RyAHDKBvArlVtYo6rdTsjPmKm16BFIvJ/mdQjiCBBMtbbeeuXZmNKL9uoaFe/B3QILzyTvhWLDcGNDLMLxfsRA6F8vV51zWoTQ5fZz+LgzTaZTf3iV+E8M/BJxWagVdRItS4+Toiny/1zvW1Wc=
+
+branches:
+  only: master
+
+cache:
+  directories:
+    - node_modules/
+    - src/bower_components/

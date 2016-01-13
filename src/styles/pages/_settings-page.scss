@@ -1,0 +1,285 @@
+.shadow {
+  position: fixed;
+  width: 100%;
+  height: 0.5rem;
+  top: 10rem;
+  z-index: 1;
+  border-bottom: 1px solid $color-settings-page-border;
+}
+.settings-title {
+  h2 {
+    margin: 0;
+    font-weight: normal;
+    margin-bottom: 5px;
+  }
+  p {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}
+.settings-page {
+  .settings-panel {
+    border-top: 1px solid $color-settings-page-border;
+    border-bottom: 1px solid $color-settings-page-border;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 120px;
+    .config {
+      flex: 0 0 40%;
+      display: flex;
+      flex-flow: row nowrap;
+      .big-avatar {
+        flex: 0 0 30%;
+        text-align: center;
+        align-self: center;
+        .mask {
+          margin-left: 1.5rem;
+          width: 85px;
+          height: 85px;
+          border-radius: 50%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+          background-color: $color-settings-avatar;
+        }
+      }
+      .user-data {
+        flex: 0 0 70%;
+        align-self: center;
+        h4 {
+          margin: 0;
+          font-weight: normal;
+          text-transform: capitalize;
+        }
+        p {
+          margin: 0;
+          color: $color-settings-page-base;
+          font-size: 0.8rem;
+          margin: 5px 0;
+        }
+        a {
+          color: $color-settings-page-actions;
+          text-decoration: none;
+          margin-right: 1rem;
+          font-size: 0.7rem;
+          &:hover {
+            font-weight: bold;
+          }
+        }
+        .change-picture {
+          overflow: hidden;
+          position: relative;
+          color: $color-settings-page-actions;
+          text-decoration: none;
+          margin-right: 1rem;
+          font-size: 0.7rem;
+          cursor: pointer;
+          i {
+            margin-right: 0.2rem;
+          }
+          &:hover {
+            font-weight: bold;
+          }
+        }
+        .change-picture [type=file] {
+          cursor: pointer;
+          display: block;
+          font-size: 1rem;
+          height: 1rem;
+          width: 6rem;
+          opacity: 0;
+          position: absolute;
+          right: 0;
+          text-align: right;
+          top: 0;
+          z-index: -1;
+        }
+      }
+    }
+    .storage {
+      flex: 0 0 60%;
+      text-align: center;
+      align-self: center;
+      .total-storage {
+        width: 90%;
+      }
+      .storage-data {
+        justify-content: space-between;
+        display: flex;
+        margin: 0 40px;
+        span {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  .tabs-panel {
+    border-bottom: 1px solid $color-settings-page-border;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 80px;
+    .tabs {
+      flex: 0 0 80%;
+      align-self: flex-end;
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        li {
+          width: 13rem;
+          align-self: flex-end;
+          a {
+            display: flex;
+            padding: 10px 0;
+            justify-content: center;
+            font-size: 0.8rem;
+            border: 1px solid $color-settings-page-tab-border;
+            border-bottom: none;
+          }
+          &:hover a, a.active {
+            display: flex;
+            flex-flow: column nowrap;
+            text-align: center;
+            padding-top: 12px;
+            border: 1px solid $color-settings-page-tab-border;
+            border-bottom: none;
+            &:after {
+              background-color: $color-button-background;
+              content: "";
+              height: 0.15rem;
+              position: relative;
+              bottom: -0.6rem;
+            }
+          }
+        }
+      }
+    }
+    .tabs-add-cloud {
+      flex: 0 0 20%;
+      text-align: right;
+      align-self: center;
+      button {
+        margin-right: 30px;
+        padding: 10px 20px;
+        i {
+          font-size: 1.3rem;
+          margin-right: 10px;
+          vertical-align: sub;
+        }
+      }
+    }
+  }
+  .clouds-panel {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 40px;
+    .cloud {
+      flex: 1 0 auto;
+      .cloud-title {
+        margin-bottom: 20px;
+        .ag-dropbox-logo {
+          font-size: 1rem;
+        }
+        .ag-box-logo {
+          font-size: 1.2rem;
+        }
+        .drive-logo{
+          width: 16px;
+        }
+        span {
+          margin-left: 10px;
+          color: $color-settings-page-base;
+        }
+      }
+      .cloud-table {
+        margin-bottom: 30px;
+        tbody {
+          margin-top: 0;
+        }
+        tr {
+          border: none;
+        }
+        td:first-child {
+          padding: 0;
+          border: none;
+        }
+        td {
+          padding: 10px;
+          border-bottom: 1px solid $color-table-row-border;
+          progress {
+            width: 15rem;
+          }
+          span {
+            vertical-align: top;
+            font-size: 0.7rem;
+            margin-top: 1em;
+            display: inline-block;
+          }
+        }
+        a {
+          color: $color-settings-page-actions;
+          text-decoration: none;
+        }
+      }
+    }
+    .cloud-dropbox {
+      tr:first-child {
+        border-top: 1px solid $color-settings-page-dropbox;
+      }
+      .color-block {
+        background-color: $color-settings-page-dropbox;
+      }
+      progress::-webkit-progress-value {
+        background-color: $color-settings-page-dropbox;
+      }
+      progress::-moz-progress-bar {
+        background-color: $color-settings-page-dropbox;
+      }
+    }
+    .cloud-drive {
+      tr:first-child {
+        border-top: 1px solid $color-settings-page-drive;
+      }
+      .color-block {
+        background-color: $color-settings-page-drive;
+      }
+      progress::-webkit-progress-value {
+        background-color: $color-settings-page-drive;
+      }
+      progress::-moz-progress-bar {
+        background-color: $color-settings-page-drive;
+      }
+    }
+    .cloud-box {
+      tr:first-child {
+        border-top: 1px solid $color-settings-page-box;
+      }
+      .color-block {
+        background-color: $color-settings-page-box;
+      }
+      progress::-webkit-progress-value {
+        background-color: $color-settings-page-box;
+      }
+      progress::-moz-progress-bar {
+        background-color: $color-settings-page-box;
+      }
+    }
+  }
+  .legals-panel {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 2rem 3rem;
+    p {
+      font-size: 0.7rem;
+      text-rendering: auto;
+      text-align: justify;
+      line-height: 1rem;
+      a {
+        font-size: 0.7rem;
+        text-decoration: underline;
+        color: $color-button-background;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+$color-type: (
+	xls: #009966,
+	excel: #009966,
+	spreadsheet: #009966,
+	doc: #004bb7,
+	word: #004bb7,
+	document: #004bb7,
+	ppt: #ff8939,
+	powerpoint: #ff8939,
+	presentation: #ff8939,
+	music: #57209e,
+	video: #312f4c,
+	photo: #ff635f,
+	picture: #ff635f,
+	drawing: #4ed1ce,
+	pdf: #db1d1d,
+	file: #8ea0af,
+	folder: #8ea0af,
+	shared-folder: #8ea0af,
+	new-folder: #8ea0af,
+	illustrator: #fdaf4a,
+	photoshop: #91c3fa,
+	ae: #d2acfb,
+	indd: #d71d7b,
+	zip: #fccc42,
+	misc: #d63686
+);
+
+@each $name, $color in $color-type {
+	.flat-l-#{$name} {
+		color: $color;
+	}
+}
+
+.flat-l-photoshop:after,
+.flat-l-illustrator:after,
+.flat-l-ae:after,
+.flat-l-indd:after {
+  content: "\e614";
+  margin-left: -1rem;
+  color: #060037;
+}

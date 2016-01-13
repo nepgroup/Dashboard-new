@@ -1,0 +1,17 @@
+.ag-dropbox-logo {
+  color: $color-cloud-dropbox;
+  font-size: 0.8rem;
+}
+.ag-box-logo {
+  color: $color-cloud-box;
+  font-size: 0.9rem;
+}
+
+.ag-drive-logo {
+  width: 0.8rem;
+  height: 0.8rem;
+  background-image: url("../images/logo_drive.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-flex;
+}

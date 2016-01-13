@@ -1,0 +1,64 @@
+#rename-modal {
+  .modal-body {
+    padding: 2.5rem;
+    h2 {
+      font-weight: lighter;
+      margin: 0;
+      font-size: 2rem;
+    }
+    i {
+      font-size: 3rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    input {
+      font-weight: normal;
+      margin: 0;
+    }
+    .rename-input {
+      margin-top: 2rem;
+      input {
+        border: none;
+        border-bottom: 1px solid $color-table-base-column;
+        font-size: 1rem;
+        overflow: hidden;
+        width: 100%;
+        padding: 0.5rem 0;
+        &:focus {
+          border-bottom: 1px solid $color-table-base-column;
+          outline: none;
+        }
+        &::selection{
+          background-color: $color-create-border;
+        }
+      }
+    }
+    p {
+      font-size: 0.9rem;
+      font-weight: lighter;
+      margin: 0;
+    }
+  }
+  .modal-footer {
+    border-top: 1px solid $color-create-border;
+    padding: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    button {
+      padding: 0.5rem 2.5rem;
+      margin: 0 0.1rem;
+    }
+    .btn-invert {
+      color: $color-button-background-secondary;
+      background-color: transparent;
+      box-shadow:inset 0px 0px 0px 1px $color-button-background-secondary;
+      &:hover {
+        color: $color-button-base;
+        background-color: $color-button-background-secondary;
+        border: none;
+      }
+    }
+  }
+}

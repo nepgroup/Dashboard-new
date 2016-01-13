@@ -1,0 +1,64 @@
+.fixed(ng-click="Resources.unselectAll()")
+  .logo
+    h1(ng-click="files()")
+      i.flat-logo
+  .create
+    button.button-create(ng-disabled="!isEnabled()", dropdown-menu="createDropdown") CREATE
+    ul.dropdown.dropdown-create(id="createDropdown")
+      li
+        a(href='', ng-click="createFolder()")
+          i.flat-l-folder
+          |   New Folder
+      li(ng-click="newDocument()")
+        a(href='')
+          i.flat-l-document
+          |   Document
+      li(ng-click="newPresentation()")
+        a(href='')
+          i.flat-l-presentation
+          |   Presentation
+      li(ng-click="newSpreadsheet()")
+        a(href='')
+          i.flat-l-spreadsheet
+          |   Spreadsheet
+      li(ng-if="false")
+        a(href='')
+          i.flat-email
+          |   Email
+    label.button-upload(class="hint--right", data-hint="Upload", ng-disabled="!isEnabled()")
+      i.ag.ag-arrow-up
+      input(ng-if="isEnabled()", type="file", multiple, nv-file-select="", uploader="fileUploader")
+  .menu
+    ul.menu-group
+      a.dropdown-arrow(href='', ng-click="clouds.click()")
+        i(class="{{ clouds.class() }}")
+      li.files(ng-class="{ active: state.is(STATE.files) }", ng-click="files()")
+        a(href='')
+          i.flat-files
+          |  Files
+      ul.cloud-group(ng-show="clouds.visible")
+        li(ng-repeat="cloud in clouds.list | orderBy:'-cloudType':false", ng-click="open(cloud); $event.stopPropagation()")
+          i(class="ag-{{cloud.cloudType}}-logo")
+          a(href='', ng-class="{ active: state.is(STATE.files, { resourceId: cloud.root }) }") {{cloud.cloudUserEmail}}
+      li.incoming(ng-class="{ active: state.is(STATE.incoming) }", ng-click="incoming()")
+        a(href='')
+          i.flat-incoming-files
+          |  Incoming
+          span.badge(ng-show="incomingCounter()") {{incomingCounter()}}
+            i.flat-incoming
+      li.recent(ng-class="{ active: state.is(STATE.recent) }", ng-click="recent()")
+        a(href='')
+          i.flat-recent-files
+          |  Recent
+          span.badge(ng-show="clouds.recent") 2
+            i.flat-incoming
+      li.starred(ng-class="{ active: state.is(STATE.starred) }", ng-click="starred()")
+        a(href='')
+          i.flat-starred-files
+          |  Starred
+      li.trash(ng-class="{ active: state.is(STATE.trash) }", ng-click="trash()")
+        a(href='')
+          i.flat-trash
+          |  Trash
+  .add-cloud
+    button.button-add-cloud(ng-click="invite()") Invite

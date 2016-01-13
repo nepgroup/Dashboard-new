@@ -1,0 +1,30 @@
+.details-modal.step1(ng-show="step1Visible")
+  .modal-body
+    i(class="ag-{{cloud.cloudType}}-logo")
+    h2 {{cloud.cloudUserEmail}}
+    p Connected since {{cloud.createdAt | date:'MM/dd/yyyy'}}
+  .modal-footer
+    button(ng-click="close()") Close
+    button.danger.btn-invert(ng-click="step1()") Disconnect Account
+.details-modal.step2(ng-show="step2Visible")
+  .modal-body
+    i.flat-warning
+    h2 {{cloud.cloudUserEmail}}
+    p
+      | If you disconnect this account you’ll
+      | lose all your permissions validated on Agora.
+  .modal-footer
+    button(ng-click="close()") Close
+    button.danger.btn-invert(ng-click="step2()") Disconnect Account
+.details-modal.step3(ng-show="step3Visible")
+  .modal-body
+    i.flat-warning
+    h2 Are you sure?
+    p
+      | By disconnecting this account Agora won't be
+      | anymore able to manage the files associated
+      | with it and some collaborators you added through
+      | Agora might lose access to your files.
+  .modal-footer
+    button(ng-click="close()") Close
+    button.danger.btn-invert(ng-click="disconnect(cloud)") Disconnect Account

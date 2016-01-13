@@ -1,0 +1,72 @@
+.settings-group{
+  display: flex;
+  flex-flow: row nowrap;
+  color: $color-settings-base;
+  .user {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: right;
+    text-transform: capitalize;
+  }
+  .gear{
+    cursor: pointer;
+    i {
+      font-size: 2rem;
+      margin-right: -0.5rem;
+    }
+  }
+  .avatar {
+    text-align: right;
+    margin-left: 5px;
+    .mask {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-color: $color-settings-avatar;
+      cursor: pointer;
+    }
+  }
+  .dropdown-settings {
+    top: 65px;
+    right: 0;
+    li {
+      a {
+        font-size: 0.8rem;
+        font-weight: normal;
+        padding: 15px;
+        display: block;
+        &:hover {
+          font-weight: bold;
+        }
+      }
+      &:first-child {
+        font-size: 0.7rem;
+        text-align: center;
+        padding: 15px;
+      }
+      &:nth-child(2) a i{
+        font-size: 1rem;
+      }
+      &:last-child a {
+        color: $color-settings-danger;
+        border: none;
+      }
+      i {
+        margin: 0 14px;
+      }
+    }
+    &:after, &:before {
+      left: 63%;
+    }
+  }
+  .dropdown-settings.ng-hide-remove {
+    animation: 0.3s ShowFromBottom ease;
+  }
+
+  .dropdown-settings.ng-hide-add {
+    animation: 0.3s HideFromBottom ease;
+  }
+}

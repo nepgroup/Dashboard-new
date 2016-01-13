@@ -1,0 +1,13 @@
+#create-folder-modal
+  form(ng-submit="create()")
+    .modal-body
+      h2 Create Folder
+      i.flat-l-folder
+      .create-folder-input
+        input(placeholder="Untitled Agora Folder", value="{{resource.name}}", ng-model='newName', focus-on-load)
+      p(ng-if="isFilesRoot") Agora will store this item on:
+      select.cloud-list(ng-model="selected.cloud", ng-if="isFilesRoot",
+          ng-options="cloud.cloudType.toUpperCase() + ' - ' + cloud.cloudUserEmail for cloud in clouds | orderBy:'-cloudType':false")
+    .modal-footer
+      button(type="submit") Create
+      button.btn-invert(type="reset", ng-click="close()") Cancel

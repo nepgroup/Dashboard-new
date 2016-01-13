@@ -1,0 +1,32 @@
+.hint:after, [data-hint]:after {
+  background: $color-nav-active;
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  margin-bottom: -10px;
+  box-shadow: none;
+}
+.hint--top:before {
+  border-top-color: $color-nav-active;
+  bottom: 23px;
+}
+.hint--top:after {
+  margin-left: -20px;
+  margin-bottom: 1px;
+}
+.hint--bottom:after {
+  top: 80%;
+}
+.hint--bottom:before {
+  border-bottom-color: $color-nav-active;
+  bottom: 4px;
+  top: 80%;
+  left: 45%;
+}
+.hint--left:before {
+  border-left-color: $color-nav-active;
+  margin-right: -9px;
+}
+.hint--right:before {
+  border-right-color: $color-nav-active;
+  margin-right: 5px;
+}

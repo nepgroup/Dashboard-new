@@ -1,0 +1,23 @@
+.add-cloud-page
+  .add-cloud-panel
+    .cloud-brand(ng-repeat="cloud in Clouds")
+      i.cloud-logo(class="ag-{{cloud}}-logo")
+      span.list(ng-if="filterBy(cloud).length === 0")
+        | Connect your {{capitalize(cloud)}} Account
+        br
+        |  to your Agora profile.
+      span.list(ng-if="filterBy(cloud).length === 1") {{filterBy(cloud)[0].cloudUserEmail}}
+        button.btn-invert(ng-click="goSettings()") Details
+      span.list(ng-if="filterBy(cloud).length >= 2") {{filterBy(cloud).length}} Accounts connected
+        button.btn-invert(ng-click="goSettings()") View List
+      .add(class="{{cloud}}", ng-click="addCloud(cloud)", ng-if="filterBy(cloud).length === 0")
+        span.plus +
+        br
+        span.connect Add {{capitalize(cloud)}} Account
+      .add(class="{{cloud}}", ng-click="addCloud(cloud)", ng-if="filterBy(cloud).length >= 1")
+        span.connect-bis Connect another account
+        br
+        span.plus +
+  .finished
+    p Done connecting your accounts?
+     button(ng-click="goFiles()") Take me to my files

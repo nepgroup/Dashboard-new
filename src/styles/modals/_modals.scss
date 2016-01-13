@@ -1,0 +1,42 @@
+.fancymodal-open {
+  overflow: hidden; }
+.fancymodal,
+.fancymodal *,
+.fancymodal *:before,
+.fancymodal *:after {
+  box-sizing: border-box; }
+.fancymodal {
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+.fancymodal .fancymodal-overlay {
+  -webkit-backface-visibility: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+.fancymodal .fancymodal-content {
+  min-width: 350px;
+  min-height: 350px;
+  background: #fff;
+  -webkit-backface-visibility: hidden;
+  position: relative;
+  text-align: center; }
+.fancymodal .fancymodal-content-opening {
+  animation: fancymodal-in 0.5s; }
+.fancymodal .fancymodal-content-closing {
+  animation: fancymodal-out 0.5s; }
+.fancymodal .fancymodal-overlay-opening {
+  animation: fancymodal-fadeIn 0.5s; }
+.fancymodal .fancymodal-overlay-closing {
+  animation: fancymodal-fadeOut 0.5s; }

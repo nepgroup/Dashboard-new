@@ -1,0 +1,13 @@
+#skip-modal
+  .modal-body
+    h2
+      | Are you sure you don't want to
+      br
+      | bring your collaborators to Agora?
+    p
+      | If you don't connect clouds you will only be able to see
+      br
+      | and edit files that have been shared with you by others.
+  .modal-footer
+    button(ng-click="close()") No, let me invite someone
+    a(href="", ng-click="sure()") I am sure

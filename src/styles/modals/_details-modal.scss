@@ -1,0 +1,102 @@
+.details-modal {
+  width: 28rem;
+  &:before {
+    background-color: $color-button-background;
+    content: "";
+    height: 0.2rem;
+    width: 100%;
+    position: absolute;
+    right: 0;
+  }
+  .modal-body {
+    padding: 3rem;
+    i {
+      font-size: 5.5rem;
+      padding-bottom: 2.5rem;
+      display: inline-block;
+      &.ag-drive-logo {
+        width: 6rem;
+        height: 6rem;
+        margin-bottom: 2rem;
+        display: inline-flex;
+      }
+    }
+    h2 {
+      font-weight: lighter;
+      margin: 0;
+    }
+    p {
+      font-size: 0.8rem;
+      font-weight: lighter;
+      margin: 0;
+    }
+  }
+  .modal-footer {
+    border-top: 1px solid $color-table-row-border;
+    padding: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    button {
+      padding: 0.5rem 2.5rem;
+      margin: 0 0.1rem;
+    }
+    button {
+      color: $color-button-base;
+      background-color: $color-button-background;
+      &:hover {
+        color: $color-button-background;
+        background-color: transparent;
+        box-shadow:inset 0px 0px 0px 1px $color-button-background;
+      }
+    }
+    .danger.btn-invert {
+      color: $color-button-background-danger;
+      background-color: transparent;
+      box-shadow:inset 0px 0px 0px 1px $color-button-background-danger;
+      &:hover {
+        color: $color-button-base-danger;
+        background-color: $color-button-background-danger;
+        border: none;
+      }
+    }
+  }
+  &.step2 {
+    &:before {
+      background-color: $color-button-background-danger;
+    }
+    .modal-body {
+      i {
+        font-size: 3rem;
+        color: $color-button-background-danger;
+      }
+      p {
+        margin: 2rem;
+      }
+    }
+  }
+  &.step3 {
+    &:before {
+      background-color: $color-button-background-danger;
+    }
+    .modal-body {
+      i {
+        font-size: 3rem;
+        color: $color-button-background-danger;
+        padding-bottom: 0;
+      }
+      h2 {
+        color: $color-button-background-danger;
+        margin: 1rem;
+      }
+      p {
+        margin: 0 2.5rem;
+      }
+    }
+  }
+}
+
+.details-modal.ng-hide-remove {
+  animation: 1s ShowDetails ease-in-out;
+}
+

@@ -1,0 +1,9 @@
+{
+  "extends": "../.eslintrc",
+  "globals": {
+    "expect": false,
+    "inject": false,
+    "module": false,
+    "sinon": false
+  }
+}

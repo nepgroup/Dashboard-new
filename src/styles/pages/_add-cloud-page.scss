@@ -1,0 +1,108 @@
+.add-cloud-title {
+  h2 {
+    margin: 0;
+    font-weight: normal;
+    margin-bottom: 5px;
+  }
+  p {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}
+.add-cloud-page {
+  .add-cloud-panel {
+    margin-top: 3rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    .cloud-brand {
+      flex: 0 0 28%;
+      border: 1px solid $color-table-header-border;
+      overflow: hidden;
+      height: 300px;
+      text-align: center;
+      .cloud-logo {
+        font-size: 7rem;
+        margin: 1rem 0;
+        display: block;
+        &.ag-drive-logo {
+          width: 7rem;
+          height: 7rem;
+          display: inline-flex;
+        }
+      }
+      .list {
+        display: block;
+        padding: 2rem 0;
+        font-size: 0.8rem;
+        .btn-invert {
+          box-shadow:inset 0px 0px 0px 1px $color-button-base-secondary;
+          color: $color-button-base-secondary;
+          padding: 0.5rem;
+          margin-left: 0.5rem;
+          &:hover {
+            background-color: $color-button-base-secondary;
+            color: $color-button-base;
+          }
+        }
+      }
+      .add {
+        cursor: pointer;
+        width: 100%;
+        height: 10rem;
+        padding-top: 1rem;
+        color: $color-button-base;
+        transform: translate(0, 0);
+        transition: all 0.4s ease-in-out;
+        &.dropbox {
+          background-color: $color-cloud-dropbox;
+        }
+        &.box {
+          background-color: $color-cloud-box;
+        }
+        &.drive {
+          background-color: $color-cloud-drive;
+        }
+        .plus {
+          font-size: 2rem;
+          margin-top: -0.4rem;
+          margin-bottom: 1.5rem;
+          display: inline-block;
+          transition: all 0.4s ease-in-out;
+        }
+        .connect {
+          font-size: 0.8rem;
+          transition: all 0.4s ease-in-out;
+        }
+        .connect-bis {
+          font-size: 0.8rem;
+          margin-bottom: 1.5rem;
+          display: inline-block;
+          margin-top: 0.3rem;
+          transition: all 0.4s ease-in-out;
+        }
+        &:hover {
+          transform: translate(0, -65%);
+          transition: all 0.4s ease-in-out;
+          .plus {
+            font-size: 3.2rem;
+            transition: all 0.4s ease-in-out;
+          }
+          .connect, .connect-bis{
+            font-size: 1.2rem;
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+.finished {
+  text-align: center;
+  padding: 0;
+  font-size: 0.8rem;
+  button {
+    padding: 0.5rem;
+    margin: 1rem;
+  }
+}

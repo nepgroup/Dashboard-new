@@ -1,0 +1,8 @@
+.cancel-upload-modal
+  .modal-body
+    h2 Cancel Upload?
+    p
+      | Are you sure you want to cancel these uploads?
+  .modal-footer
+    button(ng-click="close()") Continue Upload
+    button.danger.btn-invert(ng-click="accept()") Cancel Upload

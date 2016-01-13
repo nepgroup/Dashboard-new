@@ -1,0 +1,29 @@
+ul.actions-group(ng-show='Resources.anyoneSelected()')
+  li(ng-click="move()", ng-if="!isTrash() && !isFilesRoot() && !isStarred")
+    button
+      i.flat-moveto
+      |   Move
+  li(ng-if="false")
+    button
+      i.flat-share
+      |   Share
+  li(ng-click="edit()", ng-if="Resources.isSingleOperation() && isEditable() && !isTrash()")
+    button
+      i.flat-edit2
+      |   Edit
+  li(ng-click="download()")
+    button
+      i.flat-download
+      |   Download {{Resources.moreThanOneSelected() ? 'All' : ''}}
+  li(ng-if="false")
+    button
+      i.flat-email
+      |   Email
+  li(ng-click="removeAllFiles()", ng-if="!isTrash()")
+    button.remove
+      i.flat-trash
+      |   Delete {{Resources.moreThanOneSelected() ? 'All' : ''}}
+  li(ng-click="restoreAllFiles()", ng-if="isTrash()")
+    button.remove
+      i.ag-mail-forward
+      |   Restore {{Resources.moreThanOneSelected() ? 'All' : ''}}

@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+  color: $color-base-font;
+}
+button {
+  font-size: 0.8rem;
+  color: $color-button-base;
+  background-color: $color-button-background;
+  border: none;
+  outline: 0;
+  &:hover {
+    color: $color-button-background;
+    background-color: transparent;
+    box-shadow:inset 0px 0px 0px 1px $color-button-background;
+  }
+}
+.btn-invert {
+  font-size: 0.8rem;
+  color: $color-button-background;
+  background-color: transparent;
+  box-shadow:inset 0px 0px 0px 1px $color-button-background;
+  outline: 0;
+  &:hover {
+    color: $color-button-base;
+    background-color: $color-button-background;
+    border: none;
+  }
+}

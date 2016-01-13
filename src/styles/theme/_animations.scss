@@ -1,0 +1,88 @@
+/* Dropdown animations */
+
+@keyframes HideFromBottom {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes ShowFromBottom {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Modal animations */
+
+@keyframes fancymodal-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes fancymodal-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0); }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px); } }
+
+@keyframes fancymodal-fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fancymodal-fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/* Notifications animations */
+
+@keyframes HideNotifications {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+}
+
+@keyframes ShowNotifications {
+  from {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Details animations */
+
+@keyframes ShowDetails {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

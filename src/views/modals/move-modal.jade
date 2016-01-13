@@ -1,0 +1,38 @@
+#move-modal
+  .modal-header
+    h2 Move / Copy
+    p.counter(ng-if="resources.length > 1") {{message}} - {{sharedMessage}} shared
+    .info(ng-if="resources.length <= 1")
+      i.file-share(ng-if="resources[0].isShared || resources[0].isSharedInAgora", class="flat-shared")
+      i(ng-class="'flat-l-' + getMimeType(resources[0])")
+      .data
+        h5 {{resources[0].name}}
+        p {{resources[0].size | humanizeFilesize}} | Last Mod.: {{ resources[0].modifiedDate | date:'MM/dd/yyyy' }}
+        span
+          i(class="ag-{{resources[0].cloudType}}-logo")
+          | {{resources[0].cloudUserEmail}}
+  .modal-body
+    p Please select a folder:
+    a.back(href="", ng-if="hasParents()", ng-click="back()")
+      i.flat-l-folder
+      | Back to {{parent().name}}
+
+    table(st-table="Resources")
+      tbody
+        tr(ng-repeat="resource in Resources | filter:isFolder | filter:currentCloud",
+            st-select-row="resource",
+            st-select-mode="single",
+            ng-dblclick="open(resource)")
+          td(width="45%", align="left")
+            i.file-share(ng-if="resource.isShared || resource.isSharedInAgora", class="flat-shared")
+            span.file-name
+              i(ng-class="'flat-l-' + getMimeType(resource)")
+              span {{resource.name}}
+          td(width="10%", align="center")
+            span.hint--left(data-hint="{{resource.cloudUserEmail}}")
+              i(class="ag-{{resource.cloudType}}-logo")
+
+  .modal-footer
+    button.hint--top(ng-disabled="!canMove()", ng-click="move(destination())", data-hint="You can't move shared files to a different cloud") Move
+    button.copy(ng-disabled="!canCopy()" ng-click="copy(destination())") Copy
+    button.btn-invert(ng-click="close()") Cancel

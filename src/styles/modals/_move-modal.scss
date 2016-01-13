@@ -1,0 +1,149 @@
+.move {
+  .fancymodal-content {
+    min-height: 30rem;
+    min-width: 30rem;
+  }
+}#move-modal {
+  .modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid $color-create-border;
+    h2 {
+      font-weight: lighter;
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .counter {
+      font-size: 0.7rem;
+      margin: 0;
+      margin-top: 0.5rem;
+    }
+    .info {
+      display: flex;
+      justify-content: center;
+      padding-top: 1.5rem;
+      align-items: center;
+      i {
+        font-size: 2.5rem;
+        display: inline-block;
+        &.flat-l-photoshop:after,
+        &.flat-l-illustrator:after,
+        &.flat-l-ae:after,
+        &.flat-l-indd:after {
+          margin-left: -3rem;
+        }
+        &.file-share {
+          font-size: 1rem;
+          margin-right: 0.5rem;
+        }
+      }
+      .data {
+          align-self: center;
+          text-align: left;
+          margin-left: 0.5rem;
+        h5 {
+          font-size: 1rem;
+          font-weight: lighter;
+          margin: 0;
+          max-width: 15rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: inline-block;
+        }
+        p, span {
+          align-items: center;
+          display: flex;
+          font-size: 0.6rem;
+          margin: 0;
+          margin-bottom: 0.2rem;
+          i {
+            font-size: 0.8rem;
+            margin-right: 0.2rem;
+          }
+        }
+      }
+    }
+  }
+  .modal-body {
+    padding: 1.5rem 2rem;
+    p {
+      font-size: 0.8rem;
+      margin: 0;
+      text-align: left;
+    }
+    .back {
+      display: flex;
+      position: absolute;
+      margin-top: 0.1rem;
+      font-size: 0.7rem;
+      align-items: center;
+      font-weight: bold;
+      i {
+        font-size: 1.3rem;
+        margin-right: 0.3rem;
+      }
+    }
+    table {
+      max-height: 10rem;
+      overflow-y: auto;
+      display: flex;
+      max-width: 26rem;
+      margin-top: 1.5rem;
+      tbody {
+        margin: 0;
+      }
+    }
+  }
+  .modal-footer {
+    border-top: 1px solid $color-create-border;
+    padding: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    button {
+      padding: 0.5rem 2.5rem;
+      margin: 0 0.1rem;
+      &:hover {
+        &.hint--top:after, &.hint--top:before {
+          visibility: hidden;
+        }
+      }
+      &.copy {
+        background-color: $color-button-background-success;
+        &:hover {
+          color: $color-button-background-success;
+          background-color: transparent;
+          box-shadow: inset 0px 0px 0px 1px $color-button-background-success;
+        }
+      }
+      &[disabled="disabled"] {
+        background-color: $color-button-background-disabled;
+        &:hover {
+          color: $color-button-base;
+          background-color: $color-button-background-disabled;
+          box-shadow: none;
+        }
+        &.hint--top:after {
+          visibility: visible;
+          margin-left: -100px;
+          margin-bottom: -2px;
+        }
+        &.hint--top:before {
+          visibility: visible;
+          margin-bottom: -2px;
+        }
+      }
+      &.btn-invert {
+        color: $color-button-background-secondary;
+        background-color: transparent;
+        box-shadow: inset 0px 0px 0px 1px $color-button-background-secondary;
+        &:hover {
+          color: $color-button-base-danger;
+          background-color: $color-button-background-secondary;
+          border: none;
+        }
+      }
+    }
+  }
+}
+

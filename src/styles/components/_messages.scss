@@ -1,0 +1,12 @@
+.messages-group {
+  display: flex;
+  flex: 0 0 100%;
+  align-self: flex-end;
+  span {
+    flex: 0 0 100%;
+    font-size: 0.6rem;
+    background-color: $color-button-background-grey;
+    padding: 0.2rem 1rem;
+    display: table;
+  }
+}

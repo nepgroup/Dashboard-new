@@ -1,0 +1,15 @@
+#alert-modal-multi
+  .modal-body
+    h2 {{message()}}
+    ul
+      li(ng-repeat="item in resources")
+        .icon
+          i(ng-class="'flat-l-' + getMimeType(item)")
+        .data
+          h5 {{item.name}}
+          p {{item.size/1024/1024|number:2}} MB | Last Mod.: {{ item.modifiedDate | date:'MM/dd/yyyy' }}
+        .remove(ng-click="remove($index)")
+          span X
+  .modal-footer
+    button.danger(ng-click="delete()") Delete
+    button.danger.btn-invert(ng-click="close()") Cancel

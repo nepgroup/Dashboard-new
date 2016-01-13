@@ -1,0 +1,17 @@
+.file-viewer(escape-close="close()")
+  .header-viewer
+    .logo(ui-sref="general.home.resources.files")
+      h1
+        i.flat-logo
+    .title
+      |  {{ resource.name }}
+    .options
+      button(ng-click="edit()", ng-if="TypeService.isEditable(resource)")
+        i(ng-class="{ 'flat-edit2': !isEditMode, 'ag-spin': isEditMode, 'flat-gear': isEditMode }")
+        |  Edit
+      button(ng-click="download()")
+        i.flat-download
+        |  Download
+      a(href="", ng-click="close()") X
+  .preview
+    viewer(mime-type="resource.mimeType" url="resource.url")

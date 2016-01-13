@@ -1,0 +1,16 @@
+aside(ui-view='aside')
+section
+  #wrapper-section
+    .fixed
+      .notifications(ui-view='notifications', ng-show='showNotification()', ng-class='type()')
+      header
+        .header-top
+          .search(ui-view='search', ng-click='Resources.unselectAll()')
+          .messages(ui-view='messages', ng-click='Resources.unselectAll()')
+          .settings(ui-view='settings', ng-click='Resources.unselectAll()')
+        .header-bottom
+          .section-title(ui-view='section-title', ng-show='titleActive()', ng-click='Resources.unselectAll()')
+          .breadcrumb(ui-view='breadcrumb', ng-click='Resources.unselectAll()')
+          .actions(ui-view='actions')
+    main(ui-view='container', ng-click='Resources.unselectAll()', nv-file-drop, nv-file-over, over-class="dropfile-modal", uploader="fileUploader")
+
